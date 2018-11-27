@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Terminate instances that were previously launched
+    ec2:
+      state: 'absent'
+      instance_ids:
+        - i-0ad738a474a243792
+        - i-0af854e0ef7291f72
+        - i-0f37b0fa819f1df4e
+      region: us-east-2
+      aws_access_key: AKIAIQSTTQROSFQBTOCQ
+      aws_secret_key: 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

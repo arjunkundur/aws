@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+  
+  - name: Create Ec2 Instances
+    ec2:
+      aws_secret_key: PB/XT6haqq/94DUpTsIwU/vByHvcY5bzamSO2u8R
+      aws_access_key: AKIAIQSTTQROSFQBTOCQ
+      key_name: jenkins
+      instance_type: t2.micro
+      image: ami-023c8dbf8268fb3ca
+      region: us-east-2
+      wait: yes
+      group: My Security Group
+      count: 2 
+      instance_tags:
+        Name: New
+      vpc_subnet_id: subnet-4bf09706
+      assign_public_ip: yes
